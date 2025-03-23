@@ -30,8 +30,12 @@ A custom dataset was created using a subset of COCO:
 - `attention_maps/individual_query_attention_maps`: Directory containing decoder layer attention maps for individual queries across all training epochs
 - `attentoin_maps/merged_attention_maps`: Directory containing merged attention maps for all queries across all training epochs. Has subfolders for attention maps with object bounding boxes overlaid and with just attention map with attention weight colormap.
 
+  ![epoch88](https://github.com/user-attachments/assets/e23f7ba5-a277-42bb-bb53-4bed7cec5e3a)
+
+
 ### Convolutional Feature Visualizations
 - `convolutional_features/`: Directory containing resnet18 feature maps for each convoultional layer across all training epochs
+![epoch105](https://github.com/user-attachments/assets/3e42a053-561b-4ef3-bfba-64d4b1f3d028)
 
 
 ### Training Statistics
