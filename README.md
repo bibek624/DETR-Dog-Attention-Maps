@@ -8,10 +8,13 @@ This repository contains the results of an experiment to visualize how a modifie
 ### Model Modifications
 The experiment uses a modified version of the official DETR model with reduced complexity:
 - Hidden dimension: 128 (reduced from 256)
-- Embedding dimension: 1024
-- Number of encoder/decoder layers: 4
-- Number of attention heads: 4
-- Backbone: ResNet-18
+- Feedforward dimension: 1024 (reduced from 2048)
+- Number of encoder/decoder layers: 3 (reduced from 6)
+- Number of attention heads: 4 (reduced from 8)
+- Number of queries: 10 (reduced from 100)
+- Backbone: ResNet-18 (changed from ResNet-50)
+- batch_size: 20
+- epochs: 150
 
 ### Dataset
 A custom dataset was created using a subset of COCO:
@@ -24,22 +27,26 @@ A custom dataset was created using a subset of COCO:
 
 ### Attention Map Visualizations
 - `attention_maps/`: Directory containing decoder layer attention maps for 4 out-of-distribution dog images across all training epochs
-- Each subfolder represents a different test image
-- Files are organized by epoch number for easy tracking of progression
+- `attention_maps/individual_query_attention_maps`: Directory containing decoder layer attention maps for individual queries across all training epochs
+- `attentoin_maps/merged_attention_maps`: Directory containing merged attention maps for all queries across all training epochs. Has subfolders for attention maps with object bounding boxes overlaid and with just attention map with attention weight colormap.
+
+### Convolutional Feature Visualizations
+- `convolutional_features/`: Directory containing resnet18 feature maps for each convoultional layer across all training epochs
+
 
 ### Training Statistics
-- `logs/training_stats.log`: Contains loss values, learning rates, and other metrics for each epoch
-- `logs/mAP_progression.log`: Mean Average Precision (mAP) values for each epoch
+- `logs/training_stats.txt`: Contains loss values, learning rates, and other metrics for each epoch
+- `logs/mAP_progression.txt`: Mean Average Precision (mAP) values for each epoch (the format for logging is provided in `logs/mAP_log_format.txt`)
 
 ### Animations
-- `animations/attention_timelapse.mp4`: Timelapse animation showing how attention maps evolve for a single image across training epochs
-- `animations/metrics_evolution.mp4`: Animation of training metrics showing the decrease in loss and increase in mAP over time
+- `animations/final_animation.mp4`: Timelapse animation showing how attention maps evolve for test image 1 across training epochs along with the metrics for each epoch
+- `animations/individual_images_time_lapse`: Timelapse animation showing how attention maps evolve for individual test images across training epochs
 
-## Key Findings
+<!-- ## Key Findings
 *[Note: Add your key findings here after completing your analysis]*
 
 ## Future Work
-*[Note: Add potential future directions for this research]*
+*[Note: Add potential future directions for this research]* -->
 
 ## Acknowledgments
 This work builds upon the [official DETR implementation](https://github.com/facebookresearch/detr) by Facebook Research.
