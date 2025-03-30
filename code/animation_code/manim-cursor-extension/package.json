@@ -1,0 +1,80 @@
+{
+  "name": "manim-cursor-extension",
+  "displayName": "Manim Cursor Extension",
+  "description": "Custom commands for Manim workflow in Cursor",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [
+    "onCommand:manimCursor.runScene",
+    "onCommand:manimCursor.checkpointPaste",
+    "onCommand:manimCursor.recordedCheckpointPaste",
+    "onCommand:manimCursor.skippedCheckpointPaste",
+    "onCommand:manimCursor.exit",
+    "onCommand:manimCursor.runCurrentLine"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "manimCursor.runScene",
+        "title": "Manim: Run Scene"
+      },
+      {
+        "command": "manimCursor.checkpointPaste",
+        "title": "Manim: Checkpoint Paste"
+      },
+      {
+        "command": "manimCursor.recordedCheckpointPaste",
+        "title": "Manim: Recorded Checkpoint Paste"
+      },
+      {
+        "command": "manimCursor.skippedCheckpointPaste",
+        "title": "Manim: Skipped Checkpoint Paste"
+      },
+      {
+        "command": "manimCursor.exit",
+        "title": "Manim: Exit"
+      },
+      {
+        "command": "manimCursor.runCurrentLine",
+        "key": "ctrl+m",
+        "title": "Manim: Run Current Line"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "manimCursor.runScene",
+        "key": "shift+ctrl+r",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "manimCursor.checkpointPaste",
+        "key": "ctrl+r",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "manimCursor.recordedCheckpointPaste",
+        "key": "ctrl+alt+r",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "manimCursor.skippedCheckpointPaste",
+        "key": "ctrl+shift+alt+r",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "manimCursor.exit",
+        "key": "ctrl+e",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "manimCursor.runCurrentLine",
+        "key": "ctrl+enter",
+        "when": "editorTextFocus"
+      }
+    ]
+  }
+}
